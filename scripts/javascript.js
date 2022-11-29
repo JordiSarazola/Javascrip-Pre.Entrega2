@@ -80,16 +80,6 @@ function puesto() {
 }
 
 
-
-
-/*let puesto = prompt ("Cual es el rol que te gustaria desempeñar en nuestra red? :"
-+ "\n" + "1) Estudiante" + "\n" +  "2) Maestro" + "\n" + "3)Inversor")
-if (puesto == "1" || puesto.toLowerCase() == "estudiante") {console.log ("En breve nos contacaremos contigo")
-alert("En breve nos contacaremos contigo")}
-else if (puesto == "2" || puesto.toLowerCase() == "maestro ") { maestrias(); 
-} else if (puesto == "3" || puesto.toLowerCase() == "inversor") {console.log ("")}
-}*/
-
 function permiso() {
     let objetivo = prompt("Eres mayor de 18 años?");
     if (objetivo.toLowerCase() == "si") {
