@@ -212,7 +212,7 @@ function altaInversor() {
 
 
 function bajaInversor() {
-    let dni = parseInt(prompt("Ingrese el DNI del cliente: "));
+    let dni = parseInt(prompt("Ingrese el DNI del inversor: "));
     let inversor = arrayInversores.find(Inversor => Inversor.dni === dni);
     let indice = arrayInversores.indexOf(inversor);
     arrayInversores.splice(indice, 1);
