@@ -14,7 +14,14 @@ function inversor() {
  console.log ("Nuestro equipo lo contactara a la brevedad");
  alert("Nuestro equipo lo contactara a la brevedad");
 
+ menu();
 }
+
+
+
+
+
+
 
 
 
@@ -29,16 +36,18 @@ function maestrias() {
         alert("Ingrese por favor sus estudios");
 
         maestrias = prompt("Diganos cuales son sus formaciones");
-        if (maestrias!= "") { console.log("Es un honor tenerte aqui, " + usuario + ", encontraremos el puesto perfecto para ti.")
-        alert("Es un honor tenerte aqui, " + usuario + ", encontraremos el puesto perfecto para ti.")}
-        else{
+        if (maestrias != "") {
+            console.log("Es un honor tenerte aqui, " + usuario + ", encontraremos el puesto perfecto para ti.")
+            alert("Es un honor tenerte aqui, " + usuario + ", encontraremos el puesto perfecto para ti.")
+        }
+        else {
             alert("No ingreso los datos solicitados.");
             console.log("No ingreso los datos solicitados.")
             return false
         }
 
-        
-        
+
+
     }
 }
 
@@ -87,7 +96,7 @@ function permiso() {
         alert("Es un placer conocerte, " + usuario);
         estudios();
         intereses();
-        
+
 
     }
     else {
@@ -105,8 +114,10 @@ function intereses() {
         alert("Excelente");
 
         puesto();
-    } else if (intereses == "2" || intereses.toLowerCase() == "reiki") { console.log("Estamos juntos en este camino"); alert("Estamos juntos en este camino");
-    puesto(); }
+    } else if (intereses == "2" || intereses.toLowerCase() == "reiki") {
+        console.log("Estamos juntos en este camino"); alert("Estamos juntos en este camino");
+        puesto();
+    }
     else if (intereses == "3" || intereses.toLowerCase() == "registros") {
         console.log("Te fascinara esta herramienta");
         alert("Te fascinara esta herramienta");
@@ -146,13 +157,8 @@ function estudios() {
     }
     else {
         console.log("No importa, aqui comenzara nuestro camino.");
-        alert("No importa, aqui comenzara nuestro camino.")
+        alert("No importa, aqui comenzara nuestro camino.");
     }
-
-
-
-
-
 
 }
 
@@ -163,4 +169,104 @@ permiso();
 
 
 
+
+
+function menu() {
+
+    let opcion = parseInt(prompt("Ingrese una opción: \n 1) Alta de Inversor \n 2) Baja de Inversor \n 3) Modificación de Inversion \n 4) Consulta de Inversores \n 5) Salir"));
+    return opcion;
+}
+
+let opcion = menu();
+switch (opcion) {
+    case 1:
+        altaInversor();
+        break;
+    case 2:
+        bajaInversor();
+        break;
+    case 3:
+        modificacionInversor();
+        break;
+    case 4:
+        consultaInversor();
+        break;
+    case 5:
+        salir();
+        break;
+    default:
+        alert("Vuelva pronto");
+        break;
+}
+
+
+function altaInversor() {
+    let nombre = prompt("Ingrese el nombre del Inversor: ");
+    let apellido = prompt("Ingrese el apellido del Inversor: ");
+    let dni = parseInt(prompt("Ingrese el DNI del Inversor: "));
+    let saldo = parseInt(prompt("Ingrese el saldo del Inversor: "));
+    let inversor = new Inversor(nombre, apellido, dni, saldo);
+    arrayInversores.push(inversor);
+    console.log(arrayInversores);
+}
+
+
+function bajaInversor() {
+    let dni = parseInt(prompt("Ingrese el DNI del cliente: "));
+    let inversor = arrayInversores.find(Inversor => Inversor.dni === dni);
+    let indice = arrayInversores.indexOf(inversor);
+    arrayInversores.splice(indice, 1);
+    console.log(arrayInversores);
+}
+
+function modificacionInversor() {
+    let dni = parseInt(prompt("Ingrese el DNI del Inversor: "));
+    let Inversor = arrayInversores.find(Inversor => Inversor.dni === dni);
+    let indice = arrayInversores.indexOf(Inversor);
+    let nombre = prompt("Ingrese el nombre del Inversor: ");
+    let apellido = prompt("Ingrese el apellido del Inversor: ");
+    let saldo = parseInt(prompt("Ingrese el saldo del Inversor: "));
+    let inversorModificado = new Inversor(nombre, apellido, dni, saldo);
+    arrayInversores.splice(indice, 1, inversorModificado);
+    console.log(arrayInversores);
+}
+
+
+
+function consultaInversor() {
+    let dni = parseInt(prompt("Ingrese el DNI del inversor: "));
+    let inversor = arrayInversores.find(Inversor => Inversor.dni === dni);
+    console.log(inversor);
+}
+
+
+
+
+function salir() {
+    alert("Gracias por participar del multiverso");
+}
+
+
+class Inversor {
+    constructor(nombre, apellido, dni, saldo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.saldo = saldo;
+    }
+}
+
+const InversorSamuel = new Inversor ("Samuel", "Tocaimaza", 12333678, 1000);
+const InversorJuan = new Inversor ("Esteban", "Perez", 87655521, 2000);
+const InversorMaria = new Inversor ("Jose", "Gomez", 12344678, 3000);
+const InversorPedro = new Inversor ("Manuel", "Gonzalez", 12344478, 4000);
+
+const arrayInversores = [];
+
+arrayInversores.push(InversorSamuel);
+arrayInversores.push(InversorJuan);
+arrayInversores.push(InversorMaria);
+arrayInversores.push(InversorPedro);
+
+console.log(arrayInversores);
 
