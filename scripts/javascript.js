@@ -257,9 +257,9 @@ class Inversor {
 }
 
 const InversorSamuel = new Inversor ("Samuel", "Tocaimaza", 12333678, 1000);
-const InversorJuan = new Inversor ("Esteban", "Perez", 87655521, 2000);
-const InversorMaria = new Inversor ("Jose", "Gomez", 12344678, 3000);
-const InversorPedro = new Inversor ("Manuel", "Gonzalez", 12344478, 4000);
+const InversorEsteban = new Inversor ("Esteban", "Perez", 87655521, 2000);
+const InversorJose = new Inversor ("Jose", "Gomez", 12344678, 3000);
+const InversorManuel = new Inversor ("Manuel", "Gonzalez", 12344478, 4000);
 
 const arrayInversores = [];
 
